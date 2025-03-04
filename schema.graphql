@@ -1,0 +1,41 @@
+type PointsRedeemer_Claimed {
+  id: ID!
+  user: String!
+  tokenAmount: BigInt!
+  totalPointsClaimed: BigInt!
+}
+
+type PointsRedeemer_ClaimsToggled {
+  id: ID!
+  enabled: Boolean!
+}
+
+type PointsRedeemer_OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+}
+
+type PointsRedeemer_Withdraw {
+  id: ID!
+  amount: BigInt!
+}
+
+type Tipping_FeeUpdated {
+  id: ID!
+  newFee: BigInt!
+}
+
+type Tipping_OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+}
+
+type Tipping_TipSent {
+  id: ID!
+  sender: String!
+  recipient: String!
+  amount: BigInt!
+}
+

@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: dusted
+networks:
+- id: 10143
+  start_block: 0
+  contracts:
+  - name: Tipping
+    address:
+    - 0xd3E51bfEE95E31760B671AfEF9763fB2CF4A375a
+    handler: src/EventHandlers.ts
+    events:
+    - event: FeeUpdated(uint256 newFee)
+    - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+    - event: TipSent(address indexed sender, address indexed recipient, uint256 amount)
+  - name: PointsRedeemer
+    address:
+    - 0x18C9534dfe16a0314B66395F48549716FfF9AA66
+    handler: src/EventHandlers.ts
+    events:
+    - event: Claimed(address indexed user, uint256 tokenAmount, uint256 totalPointsClaimed)
+    - event: ClaimsToggled(bool enabled)
+    - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+    - event: Withdraw(uint256 amount)
