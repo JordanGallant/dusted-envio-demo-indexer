@@ -1,3 +1,18 @@
+type GlobalStats {
+  id: ID! # singleton - "global"
+  tippingFee: BigInt!
+  tippingOwner: String!
+  pointsOwner: String!
+  pointsClaimable: Boolean!
+}
+
+type User {
+  id: ID! # address
+  address: String!
+  tips: [Tipping_TipSent!]! @derivedFrom(field: "sender")
+  points: [PointsRedeemer_Claimed!]! @derivedFrom(field: "user")
+} 
+
 type PointsRedeemer_Claimed {
   id: ID!
   user: String!
